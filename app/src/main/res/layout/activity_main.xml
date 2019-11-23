@@ -4,15 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung_main"
+    android:gravity="center"
+    android:id="@+id/myLayout"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="576dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="119dp"
+            android:fontFamily="@font/fontapp"
+            android:gravity="bottom|center"
+            android:text="Welcome to Game of Fifteen"
+            android:textColor="#FFFFFF"
+            android:textSize="46sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/applogo"
+            android:contentDescription="TODO" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="347dp"
+        android:layout_height="112dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoLayout">
+
+        <TextView
+            android:id="@+id/musicTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="10sp"
+            android:drawableEnd="@drawable/ic_queue_music_black_24dp"
+            android:fontFamily="@font/fontapp"
+            android:gravity="bottom|center"
+            android:text="Music"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Switch
+            android:id="@+id/musicSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginRight="30dp" />
+
+        <Button
+            android:id="@+id/btn1ID"
+            android:layout_width="100sp"
+            android:layout_height="60sp"
+            android:layout_weight="1"
+            android:background="@drawable/btns"
+            android:fontFamily="@font/fontapp"
+            android:gravity="center"
+            android:text="Start Play"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="34sp"
+            app:layout_constraintTop_toBottomOf="@+id/buttonsLayout"
+            tools:layout_editor_absoluteX="159dp" />
+
+    </LinearLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
