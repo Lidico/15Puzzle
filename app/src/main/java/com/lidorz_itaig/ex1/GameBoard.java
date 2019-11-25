@@ -1,4 +1,4 @@
-package com.example.a15puzzle;
+package com.lidorz_itaig.ex1;
 
 import java.util.Random;
 
@@ -7,6 +7,7 @@ public class GameBoard {
     //Varibles decleration.
     final static int NUM_OF_ARRAY = 16;
     final static int NUM_OF_LINES = 4;
+    private String[][] finishGameArray= {{"a","b","c","d"},{"e","f","g","h"},{"i","j","k","l"},{"m","n","o","p"}};
     private String[][] toBoard = new String[NUM_OF_LINES][NUM_OF_LINES];
     private int[] randNums = new int[NUM_OF_ARRAY];
     private boolean isNumberSolvable = false;
@@ -18,7 +19,6 @@ public class GameBoard {
     //Constractur.
     public GameBoard() {
         setToBoard();
-        setPPosition();
     }
 
     // Getters
@@ -54,10 +54,36 @@ public class GameBoard {
     public void setToBoard() {
         setRandNums();
         this.toBoard = toLetters(this.randNums);
+
     }
 
     public void setPPosition() {
         this.pPosition = setPP(this.toBoard);
+    }
+
+    public void swapPosition(int[] pPos, int[] pressedPos) {
+        String temp = this.toBoard[pPos[0]][pPos[1]];
+        this.toBoard[pPos[0]][pPos[1]] = toBoard[pressedPos[0]][pressedPos[1]];
+        this.toBoard[pressedPos[0]][pressedPos[1]] = temp;
+        this.pPosition[0] = pressedPos[0];
+        this.pPosition[1] = pressedPos[1];
+    }
+
+    public boolean isGameOver() {
+        int count = 0;
+        for(int i=0; i<4; i++) {
+            for(int j=0;j<4;j++) {
+                if(this.finishGameArray[i][j].equals(this.toBoard[i][j])) {
+                    count++;
+                }
+            }
+        }
+        if (count==16) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     private String[][] toLetters(int[] arr) {
@@ -108,6 +134,7 @@ public class GameBoard {
     }
 
     //function that check if the game can be solvable.
+    // Source - https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
     private boolean checkSolvability(int[] arr) {
 
         this.inverts = howManyInverts(arr);
@@ -147,9 +174,9 @@ public class GameBoard {
         }
         //  System.out.println(line);
         if (line % 2 == 0) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 
