@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.a15puzzle.R;
+import com.lidorz_itaig.ex1.R;
 
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {

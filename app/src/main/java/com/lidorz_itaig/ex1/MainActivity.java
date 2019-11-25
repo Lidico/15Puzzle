@@ -18,7 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.a15puzzle.R;
+import com.lidorz_itaig.ex1.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onMenuItemClick(MenuItem item) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
                 alertDialog.setTitle("About");
-                alertDialog.setMessage("This app implement the Game of Fifteen\r\n\r\nBy Lidor Zaken and Itai Gabai (c)");
+                alertDialog.setMessage("This app implement the Game of Fifteen\r\n\r\nBy Lidor Zaken(c)");
                 alertDialog.show();
 
                 return true;
